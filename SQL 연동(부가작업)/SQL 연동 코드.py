@@ -20,12 +20,12 @@ known_face_names = []
 # 데이터베이스에서 불러온 사용자 정보를 로드합니다.
 for user in users:
     name, image_path = user
-    # 이미지 파일인지 확인합니다.
-    # 이 부분은 예원님 데이터 권한문제로 추가한 코드로 이 코드때문에 현재 예원님 데이터는 얼굴인식 코드에 전달되지 않습니다.
-    if not os.path.isfile(image_path):
-        continue
-    img = face_recognition.load_image_file(image_path)
-    encodings = face_recognition.face_encodings(img)
-    if encodings:  
-        known_face_encodings.append(encodings[0])
+    # 이미지를 로드하기 위해 경로에서 파일을 읽어옵니다.
+    img = cv2.imread(image_path)
+    # OpenCV는 이미지를 BGR 형식으로 읽어오므로 RGB 형식으로 변환합니다.
+    rgb_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    # 얼굴 인식에 사용할 수 있도록 얼굴 인코딩을 수행합니다.
+    encoding = face_recognition.face_encodings(rgb_img)
+    if encoding:  
+        known_face_encodings.append(encoding[0])
         known_face_names.append(name)
