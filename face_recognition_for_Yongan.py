@@ -33,7 +33,7 @@ known_face_encodings = [
 known_face_names = [
     "Yoon_Yong_Sun",
     "Jung_Hee_Sang",
-    "Choi_Ye_Won",
+    "Chae_Ye_Won",
     "Kang_Min_Ju",
     "Park_Jun_Soo"
 ]
