@@ -1,10 +1,11 @@
+import os
 import mysql.connector
 
-conn = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="1234",
-    database="sakila"
+conn = mysql.connector.connect( #이부분은 mysql서버와 연결하는 부분이라서 mysql설치 및 테이블 생성 시 값을 입력해야합니다
+    host="localhost", #호스트 이름
+    user="root", #아이디
+    password="1234", # 비번
+    database="sakila" #테이블 생성한 데이터베이스
 )
 cursor = conn.cursor()
 
