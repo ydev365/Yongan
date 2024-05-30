@@ -39,7 +39,7 @@ while True:
 
     if process_this_frame:
         small_frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)
-        rgb_small_frame = small_frame[:, :, ::-1]
+        rgb_small_frame = np.ascontiguousarray[:, :, ::-1]
 
         face_locations = face_recognition.face_locations(rgb_small_frame)
         face_encodings = face_recognition.face_encodings(rgb_small_frame, face_locations)
